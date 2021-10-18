@@ -5,3 +5,14 @@
 scp -P 4242 level02@localhost:/home/user/level02/level02.pcap .
 #+end_bash
 ** On utilise un analyseur de paquets (wireshark) pour voir ce qu'il se trame.
+** On remarque une tentative de connection, qui se termine par un message d'erreur disant que le login est incorrect.
+#+begin_hex
+wwwbugs Login:
+#+end_hex
+** ensuite, on voit que des octets sont envoyes unpar un a la cible.
+66 74 5f 77 61 6e 64 72 7f 7f 7f 4e 44 52 65 6c 7f 4c 30 4c 0d 00 0d 0a 01
+** converti en texte, ces octets sont :
+"ft_wandrNDRelL0L"
+
+* FLAG :
+** kooda2puivaav1idi4f57q8iq

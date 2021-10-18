@@ -13,5 +13,6 @@ hashcat -O -m 1500 ./fall.txt ./rockyou.txt -o rain.txt
 cat rain.txt
 ** 42hDRfypTqqnw:abcdefg
 #+end_bash
+
 * FLAG :
 ** f2av5il02puano7naaf6adaaf
