@@ -1,0 +1,23 @@
+#+TITLE: SnowCrash -- Level04
+
+* A partir des informations et de quelques recherches sur le net, on peut deduire que :
+Un serveur web tourne sur le port 4747, et le fichier que nous avons devant nous correspond au code source de celui-ci
+Nous allons simplement utiliser ce fichier pour mieux creer notre payload, mais celui-ci ne nous permattra pas directement d'obtenir le flag.
+#+begin_src bash
+curl -vvv localhost:4747
+#+end_src
+ la connection est reussie, le content est vide mais le type correspond bien a ce qui se trouve dans le fichier perl
+* Il est temps d'ecrire le payload. *
+ Je remarque que le serveur renvoie la valeur de x dans le content. exemple :
+ #+begin_src bash
+ curl -vvv localhost:4747?x=bonjour
+ #+end_src
+  renvoie bonjour avec une taille de contenu de 8
+En tant que surhommes, nous connaissons bien le bash et ses defauts. L'injection de commande suivante est donc possible :
+#+begin_src bash
+curl -vvv localhost:4747'?x=`getflag`'
+#+end_src
+le flag se retrouve alors dans le contenu
+
+* FLAG :
+ ne2searoevaevoem4ov4ar8ap
