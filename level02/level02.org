@@ -1,0 +1,7 @@
+#+TITLE: SnowCrash -- level02
+
+* Fichier .pcap dans le repertoire de level02
+#+begin_bash
+scp -P 4242 level02@localhost:/home/user/level02/level02.pcap .
+#+end_bash
+** On utilise un analyseur de paquets (wireshark) pour voir ce qu'il se trame.

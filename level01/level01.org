@@ -1,0 +1,17 @@
+#+TITLE: SnowCrash -- level01
+
+* Aucun fichier d'intere lans le home de user01
+** sudo -l --> interdit
+** cat -n /etc/passwd
+41  flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+** Apres quelques recherches, j'apprends qu'avant la mise en place de /etc/shadow, les mots de passe etaient stockes de maniere encryptee dans /etc/passwd. Je dois donc decrypter ce hash.
+#+begin_bash s
+echo "42hDRfypTqqnw" > fall.txt
+hashcat fall.txt
+**    "1500 | descrypt, DES (Unix), Traditional DES | Operating System"
+hashcat -O -m 1500 ./fall.txt ./rockyou.txt -o rain.txt
+cat rain.txt
+** 42hDRfypTqqnw:abcdefg
+#+end_bash
+* FLAG :
+** f2av5il02puano7naaf6adaaf

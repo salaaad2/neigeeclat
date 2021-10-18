@@ -1,0 +1,13 @@
+#+TITLE: SnowCrash -- level00
+
+* Repertoire vide. On cherche donc des choses auxquelles on a despermissions suffisantes.
+** rien d'anormal dans les fichiers caches
+** On cherche quelque chose d'anormal dans susceptible de contenir le flag.
+*** par exemple, un fichier appartenant a l'utilisateur flag00
+#+BEGIN_SRC
+find / 2>/dev/null -user flag00
+#+END_SRC
+*** BINGO!!!. On trouve un fichier appele john. il contient "cdiiddwpgswtgt". Les lettres repetees laissent penser a un rot. On le bruteforce pour obtenir le flag :
+rot 15 : nottoohardhere
+* FLAG :
+** x24ti5gi3x0ol2eh4esiuxias
