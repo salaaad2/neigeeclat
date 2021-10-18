@@ -1,0 +1,18 @@
+#+TITLE: SnowCrash -- Level05
+
+* Lorsqu'on se connecte, on nous informe de l'arrivee d'un mail
+ Je vais donc voir dans /var/mail/level05
+ Il s'agit de la sortie de la commande crontab -l.
+#+begin_src
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+#+end_src
+On y voit que la commande /usr/sbin/openarenaserver est lancee toutes les deux minutes pas flag05
+En regardant le contenu de ce fichier, je vois que ce script execute tous les scripts contenus dans le dossier /opt/openarenaserver
+j'y place un script qwe.sh contenant
+#+begin_src
+geftlag > /tmp/qwe
+#+end_src
+puis j'attends environ deux minutes.
+
+* FLAG:
+** viuaaale9huek52boumoomioc
