@@ -1,0 +1,12 @@
+#+TITLE: SnowCrash -- Level08
+
+* ELF : name bypass
+En jouant un peu avec le binaire fourni, j'observe que ce programme affiche le contenu d'un fichier, sauf si celui-ci s'appelle token
+#+begin_bash
+chmod +w ../level08
+mv token qwe
+./level08 qwe
+#+end_bash
+
+* FLAG :
+** 25749xKZ8L7DkSCwJkT9dyv6f

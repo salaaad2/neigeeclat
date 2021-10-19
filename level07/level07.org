@@ -1,6 +1,6 @@
 #+TITLE: SbowCrash -- Level07
 
-* Env poisoning
+* ELF : Env poisoning
 Nous sommes ici face a un fichier executable ELF.
 Le fichier a le bit setuid dans ses permissions
 Lorsque celui-ci est execute, on voit qu'il affiche son propre nom

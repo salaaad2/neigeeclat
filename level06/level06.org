@@ -22,4 +22,3 @@ echo '[x {${system(getflag)}} ]'
 
 * FLAG:
 ** wiok45aaoguiboiki2tuin6ub
-wiok45aaoguiboiki2tuin6ub
