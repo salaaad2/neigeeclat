@@ -1,9 +1,25 @@
 #+TITLE: SnowCrash -- Level06
 
 * script php fait des remplacements
-flag e : executer
-trouver le moyen de controler y
+binaire setuid qui appelle le script php : injection de commande
+Apres quelques tests, on remarque que le premier appel de preg_replace est different des autres.
+En effet, celle-ci comporte le switch 'e'. Apres une lecture du manuel, on voir que celle ci est depreciee car trop vulnerable.
+** Premiere piste :
 https://bitquark.co.uk/blog/2013/07/23/the_unexpected_dangers_of_preg_replace
+on voit que lorsqu'on controle totalement les parametres, un exploit serait trivial. or, ce n'est pas le cas.
+** deuxieme piste :
+https://stackoverflow.com/questions/22715752/is-this-preg-replace-example-exploitable-in-any-wayh
+`some escaping is done automatically, but it's not enough`
+on voit que /e peut etre exploite en toutes circonstances en utilisant une syntaxe bien particuliere. On cree donc notre payload :
+#+begin_php
+echo '[x {${system(getflag)}} ]'
+#+end_php
+*** ce payload est construit de la maniere suivante :
+- on commence par faire en sorte qu'il corresponde au premier parametre du premier preg_replace
+- on applique l'evasion d`escaping`
+- on place la commande que l'on veut executer en tant que flag06
+
 
 * FLAG:
 ** wiok45aaoguiboiki2tuin6ub
+wiok45aaoguiboiki2tuin6ub
