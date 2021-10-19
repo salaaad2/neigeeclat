@@ -1,3 +1,32 @@
 #+TITLE: SnowCrash -- Level09
 
+
 * ELF : rot
+binaire qui encode le premier argument donne.
+Une analyse donne de nombreuses fausses pistes : protections anti shared object hijacking + 'do not try to reverse this bin'
+
+On comprend donc qu'il va falloir utiliser le fonctionnement basique du fichier.
+
+on a acces au fichier token. celui-ci semble avoir besoin d'etre modifie pour obtenir le flag, puisque nous y avons acces.
+
+on remarque que le binaire modifie l'entree en ajoutant la position dans la string a chaque lettre. :
+
+#+begin_bash
+./level09 'aaaaaaa'
+---> abcdefg
+#+end_bash
+
+j'essaye, sans succes d'envoyer token a ce programme de chiffrage:
+#+begin_bash
+cat token | xargs ./level09
+---> non affichable
+#+end_bash
+fausse piste !
+
+Je vais donc faire la meme fonction, a l'envers. (voir level09.c)
+
+yes ! : f3iji1ju5yuevaus41q1afiuq
+
+
+* FLAG:
+** s5cAJpM8ev6XHw998pRWG728z
