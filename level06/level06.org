@@ -4,3 +4,6 @@
 flag e : executer
 trouver le moyen de controler y
 https://bitquark.co.uk/blog/2013/07/23/the_unexpected_dangers_of_preg_replace
+
+* FLAG:
+** wiok45aaoguiboiki2tuin6ub
