@@ -1,0 +1,36 @@
+#+TITLE: SbowCrash -- Level07
+
+* Env poisoning
+Nous sommes ici face a un fichier executable ELF.
+Le fichier a le bit setuid dans ses permissions
+Lorsque celui-ci est execute, on voit qu'il affiche son propre nom
+** premiere piste : Shared object hijacking
+Avec ldd, je vois que ce fichier utilise des librairies partagees.
+Je tente donc de les empoisonner, sans succes.
+** deuxieme piste : Analyse du binaire
+je lance d'abord la commande strings, pour voir les differentes fonctions utlisees:
+#+begin_bash
+strings | grep GLIBC
+#+end_bash
+*** setresuid@@GLIBC_2.0
+*** geteuid@@GLIBC_2.0
+*** getegid@@GLIBC_2.0
+*** getenv@@GLIBC_2.0
+*** system@@GLIBC_2.0
+*** __libc_start_main@@GLIBC_2.0
+*** asprintf@@GLIBC_2.0
+*** setresgid@@GLIBC_2.0
+celles-ci ne sont pas toutes interessantes. par exemple, on sait que celles en rapport avec le uid sont necessaires a l'execution  en tant qu'un autre utlisateur, mais pas au fonctionnement du programme.
+Je retiens *asprintf, getenv, et system*.
+Si jelance strings sans grep, je remarque egalement */bin/bash %s*
+comme getenv est uitlise, j'utilise la commande env pour voir si des choses anormales se toruvent dans les variables d'environnement
+** Surface d'attaque: getenv()
+Comme on l'a vu plus haut, on peut deviner le fonctionnement du programme et preparer notre payload :
+getenv recupere la valeur dans LOGNAME, mets celle-ci dans un buffer grace a asprintf, puis execute la commande.
+** Payload :
+#+begin_bash
+LOGNAME="asd; getflag" ./level07
+#+end_bash
+
+* FLAG:
+** fiumuikeil55xe9cu4dood66h
