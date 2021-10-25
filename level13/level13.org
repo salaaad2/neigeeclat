@@ -1,0 +1,11 @@
+#+TITLE: Level13
+
+
+* executable C :
+Celui-ci veut que l'on le lance avec le uid 4242.
+Avec strings, on remarque quelques choses etranges : la presence d'un 123456, ainsi qu'une chaine semblant etre encodee.
+
+On sort notre decompilateur, recupere la chaine encodee, ainsi que la fonction  de decodage puis on execute celui-ci.
+
+* FLAG :
+** 2A31L79asukciNyi8uppkEuSx

